@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- SHADOW LAYER -->
+    <item android:left="4dp" android:top="4dp">
+        <shape>
+            <solid android:color="#58CCF1" />
+            <corners
+                android:bottomRightRadius="12dp"
+                android:bottomLeftRadius="12dp"
+                android:topLeftRadius="12dp"
+                android:topRightRadius="12dp"/>
+            <gradient
+                android:startColor="#FFF3F1D8"
+                android:centerColor="#FFB2A889"
+                android:endColor="#FFF3F1D8"
+                android:angle="315">
+            </gradient>
+        </shape>
+
+    </item>
+    <!--시크바 배경-->
+    <item android:id="@android:id/background">
+        <shape>    <!--선 : 길이6dp -->
+            <stroke android:width="6dp" android:color="#ffffff" />
+            <solid android:color="#ffffff"/>
+            <corners
+                android:bottomRightRadius="12dp"
+                android:bottomLeftRadius="12dp"
+                android:topLeftRadius="12dp"
+                android:topRightRadius="12dp"/>
+        </shape>
+    </item>
+
+    <!-- 시크바 배경2 -->
+    <item android:id="@android:id/secondaryProgress" android:left="4dp" android:top="4dp">
+        <clip>
+            <shape>
+                <stroke android:width="6dp" android:color="#B2CCFF" />
+                <solid android:color="#B2CCFF"/>
+                <corners
+                    android:bottomRightRadius="12dp"
+                    android:bottomLeftRadius="12dp"
+                    android:topLeftRadius="12dp"
+                    android:topRightRadius="12dp"/>
+            </shape>
+        </clip>
+    </item>
+
+    <!-- 시크바 프로그래스 -->
+    <item android:id="@android:id/progress" >
+        <clip>
+            <shape>
+                <stroke android:width="6dp" android:color="#D2E9B3" />
+                <solid android:color="#D2E9B3"/>
+                <corners
+                    android:bottomRightRadius="12dp"
+                    android:bottomLeftRadius="12dp"
+                    android:topLeftRadius="12dp"
+                    android:topRightRadius="12dp"/>
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>
