@@ -11,139 +11,29 @@
         android:id="@+id/therapy_dictionary_top"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#FFFFFF">
+        android:background="#35BB04">
         <ImageButton
-            android:id="@+id/move_to_main"
+            android:id="@+id/aroma_descryption_btn"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="30dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="5dp"
-            android:src="@drawable/main_top_img1"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/left_slide"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            android:background="#ffffff"/>
-        <ImageButton
-            android:id="@+id/move_to_search"
+            android:background="#00000000"/>
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="21dp"
-            android:layout_alignParentRight="true"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/search_green"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:background="#ffffff"
-            tools:ignore="RtlHardcoded" />
+            android:layout_toRightOf="@id/aroma_descryption_btn"
+            android:layout_marginLeft="10dp"
+            android:text="아로마 상세보기"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="22dp"/>
     </RelativeLayout>
-    <LinearLayout
-        android:id="@+id/aroma_color_select_btn"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:layout_below="@id/therapy_dictionary_top"
-        android:background="#79A641">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:gravity="center">
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_marginTop="7dp"
-                android:src="@drawable/aroma_white"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
-                android:background="#79A641"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Aroma"
-                android:textSize="12dp"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:background="#8CBF48">
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="28dp"
-                android:layout_marginTop="9dp"
-                android:layout_gravity="center"
-                android:src="@drawable/color_dic"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
-                android:background="#8CBF48"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Color"
-                android:textSize="12dp"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/aroma_color_select_image"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/aroma_color_select_btn"
-        android:src="@drawable/aroma_dic_banner"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"/>
-    <LinearLayout
-        android:id="@+id/single_blending_select_btn"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:layout_below="@+id/aroma_color_select_image"
-        android:background="#FFFFFF">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:gravity="center">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Single Color"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                android:textColor="#000000"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:background="#FFFFFF">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Blending Color"
-                android:textStyle="bold"
-                android:textSize="15dp"
-                android:textColor="#000000"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <ListView
-        android:layout_below="@id/single_blending_select_btn"
-        android:id="@+id/listview"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:divider="#ffcc22"
-        android:dividerHeight="1.5dp"
-        android:choiceMode="singleChoice"    />
-
 
 
     <LinearLayout
