@@ -114,7 +114,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Single Color"
-                android:textSize="15dp"
+                android:textSize="13dp"
                 android:textStyle="bold"
                 android:textColor="#000000"/>
         </LinearLayout>
@@ -130,16 +130,17 @@
                 android:layout_height="wrap_content"
                 android:text="Blending Color"
                 android:textStyle="bold"
-                android:textSize="15dp"
+                android:textSize="13dp"
                 android:textColor="#000000"/>
         </LinearLayout>
     </LinearLayout>
 
     <ListView
-        android:layout_below="@id/single_blending_select_btn"
-        android:id="@+id/listview"
+        android:id="@+id/aroma_listview"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
+        android:layout_below="@id/single_blending_select_btn"
+        android:layout_above="@id/therapy_dictionary_bottom"
         android:divider="#ffcc22"
         android:dividerHeight="1.5dp"
         android:choiceMode="singleChoice"    />
@@ -147,8 +148,9 @@
 
 
     <LinearLayout
+        android:id="@+id/therapy_dictionary_bottom"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
         <LinearLayout

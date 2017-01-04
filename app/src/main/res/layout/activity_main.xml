@@ -109,7 +109,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/main_round_btn_shadow"/>
                 <ImageView
-                    android:id="@+id/color_therapy_btn"
+                    android:id="@+id/main_color_therapy_btn"
                     android:layout_width="92dp"
                     android:layout_height="92dp"
                     android:layout_alignParentLeft="true"
@@ -134,7 +134,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/main_round_btn_shadow"/>
                 <ImageView
-                    android:id="@+id/therapy_dictionary_btn"
+                    android:id="@+id/main_therapy_dictionary_btn"
                     android:layout_width="92dp"
                     android:layout_height="92dp"
                     android:layout_alignParentLeft="true"
@@ -169,7 +169,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/main_round_btn_shadow"/>
                 <ImageView
-                    android:id="@+id/aroma_therapy_btn"
+                    android:id="@+id/main_aroma_therapy_btn"
                     android:layout_width="92dp"
                     android:layout_height="92dp"
                     android:layout_alignParentLeft="true"
@@ -194,6 +194,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/main_round_btn_shadow"/>
                 <ImageView
+                    android:id="@+id/main_market_btn"
                     android:layout_width="92dp"
                     android:layout_height="92dp"
                     android:layout_alignParentLeft="true"
@@ -213,6 +214,7 @@
     </RelativeLayout>
 
     <ImageButton
+        android:id="@+id/main_setting_btn"
         android:layout_width="wrap_content"
         android:layout_height="27dp"
         android:layout_alignParentBottom="true"
