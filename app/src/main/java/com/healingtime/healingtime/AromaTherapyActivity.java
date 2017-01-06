@@ -8,6 +8,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 public class AromaTherapyActivity extends AppCompatActivity {
+    private bluetoothObjectTransfer btObjTrans;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +33,18 @@ public class AromaTherapyActivity extends AppCompatActivity {
         aroma_therapy_spray_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int finchk = 254;
+                Toast.makeText(getApplicationContext(), "분사버튼 터치됨!", Toast.LENGTH_SHORT).show();
+                ((MainActivity)MainActivity.mContext).sendData("Aroma");
+/*                int finchk = 254;
                 byte fin = (byte)finchk;
                 byte [] color_set = {0x10, 0x11, 0x0e, 0x0a, 0x0e, 0x1e, 0x7e, 0x05, 0x02, 0x22, 0x67, 0x0a, fin};
-
-                Toast.makeText(getApplicationContext(), "분사버튼 터치됨!", Toast.LENGTH_SHORT).show();
+                Intent intent = getIntent();
+                btObjTrans = (bluetoothObjectTransfer) intent.getSerializableExtra("stream");
+                try {
+                    btObjTrans.mOutputStream.write(color_set);
+                }catch(java.io.IOException e){
+                    e.printStackTrace();
+                }*/
                 //Toast.makeText(getApplicationContext(), "기기와 연결되지 않았습니다~\n연결 후 다시 시도하세요!", Toast.LENGTH_LONG).show();
             }
         });
