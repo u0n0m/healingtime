@@ -1,5 +1,6 @@
 package com.healingtime.healingtime;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -50,30 +51,36 @@ public class AromaTherapyActivity extends AppCompatActivity {
         aroma_therapy_aroma_timeset_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "기기와 연결되지 않았습니다~\n연결 후 다시 시도하세요!", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(), AromaSettingsActivity.class);
+                int requestCode=1;
+                startActivityForResult(intent, requestCode);
+                //Toast.makeText(getApplicationContext(), "기기와 연결되지 않았습니다~\n연결 후 다시 시도하세요!", Toast.LENGTH_LONG).show();
             }
         });
         RelativeLayout color_box1 = (RelativeLayout) findViewById(R.id.color_box1);
-        aroma_therapy_aroma_timeset_btn.setOnClickListener(new View.OnClickListener() {
+        color_box1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "기기와 연결되지 않았습니다~\n연결 후 다시 시도하세요!", Toast.LENGTH_LONG).show();
             }
         });
         RelativeLayout color_box2 = (RelativeLayout) findViewById(R.id.color_box2);
-        aroma_therapy_aroma_timeset_btn.setOnClickListener(new View.OnClickListener() {
+        color_box2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "기기와 연결되지 않았습니다~\n연결 후 다시 시도하세요!", Toast.LENGTH_LONG).show();
             }
         });
         RelativeLayout color_box3 = (RelativeLayout) findViewById(R.id.color_box3);
-        aroma_therapy_aroma_timeset_btn.setOnClickListener(new View.OnClickListener() {
+        color_box3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "기기와 연결되지 않았습니다~\n연결 후 다시 시도하세요!", Toast.LENGTH_LONG).show();
             }
         });
     }
+
+
+
 
 }

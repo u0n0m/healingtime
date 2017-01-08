@@ -38,7 +38,7 @@ public class TherapyDictionaryActivity extends AppCompatActivity {
         // 아이템 추가.
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.aroma_basil), "Basil", "Ocimum basilicum") ;
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.aroma_bergamot_calabrian), "Bergamot - Calabrian", "Citrus bergamia ") ;
-        adapter.addItem(ContextCompat.getDrawable(this, R.drawable.cedarwood_atlas), "Cedarwood Atlas", "Cedrus atlantica") ;
+        adapter.addItem(ContextCompat.getDrawable(this, R.drawable.aroma_cedarwood_atlas), "Cedarwood Atlas", "Cedrus atlantica") ;
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.aroma_citronella_ceylon), "Citronella Ceylon", "Cymbopogon nardus") ;
         adapter.addItem(ContextCompat.getDrawable(this, R.drawable.aroma_clary_sage), "Clary Sage", "Salvia sclarea");
 

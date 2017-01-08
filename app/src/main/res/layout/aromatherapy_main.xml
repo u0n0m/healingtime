@@ -105,6 +105,7 @@
     </RelativeLayout>
 
     <ScrollView
+        android:id="@+id/aroma_therapy_body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/aroma_therapy_status"
@@ -327,8 +328,8 @@
                 android:layout_below="@id/aroma_spray_btn">
                 <ImageView
                     android:id="@+id/run_time_set_image2"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
                     android:layout_marginLeft="20dp"
                     android:layout_centerVertical="true"
                     android:src="@drawable/run_time_set"/>
@@ -344,8 +345,8 @@
                     android:textColor="#7A7878"/>
                 <ImageButton
                     android:id="@+id/aroma_therapy_aroma_timeset_btn"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="20dp"
