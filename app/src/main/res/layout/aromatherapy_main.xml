@@ -8,7 +8,7 @@
     android:background="#F4F3D7">
 
     <RelativeLayout
-        android:id="@+id/main_top"
+        android:id="@+id/aroma_therapy_top"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="#FFFFFF">
@@ -45,11 +45,11 @@
         android:id="@+id/aroma_therapy_status"
         android:layout_width="match_parent"
         android:layout_height="170dp"
-        android:layout_below="@id/main_top">
+        android:layout_below="@id/aroma_therapy_top">
         <ImageView
-            android:id="@+id/aroma_status_image1"
+            android:id="@+id/aroma_status_image_a"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -69,13 +69,18 @@
                 android:src="@drawable/left_slide"
                 android:background="#00000000"/>
             <TextView
+                android:id="@+id/aroma_status_text1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="설정값 없음"
+                android:textSize="30dp"
+                android:textStyle="bold"
                 android:textColor="#FFFFFF"
-                android:textSize="25dp"
-                android:textStyle="bold"/>
+                android:shadowColor="#000000"
+                android:shadowRadius="5"
+                android:shadowDx="1"
+                android:shadowDy="1"/>
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
@@ -85,12 +90,11 @@
                 android:src="@drawable/right_slide"
                 android:background="#00000000"/>
         </RelativeLayout>
-
         <RelativeLayout
             android:id="@+id/aroma_therapy_status_line"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/aroma_status_image1"
+            android:layout_alignBottom="@id/aroma_status_image_a"
             android:background="#6A000000">
             <TextView
                 android:layout_width="wrap_content"
@@ -126,104 +130,141 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <RelativeLayout
-                    android:id="@+id/color_boxes1"
+                    android:id="@+id/aroma_boxes1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
                     <RelativeLayout
                         android:id="@+id/aroma_box1"
-                        android:layout_width="115dp"
-                        android:layout_height="100dp"
+                        android:layout_width="110dp"
+                        android:layout_height="95dp"
                         android:layout_marginLeft="5dp"
-                        android:background="@drawable/aromatherapy_round_btn_gray"
                         android:layout_alignParentLeft="true">
                         <ImageView
                             android:id="@+id/aroma_box1_image"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/aroma_basil"
                             android:adjustViewBounds="true"
                             android:scaleType="fitXY"
                             android:background="@drawable/aromatherapy_round_btn_gray"/>
                         <TextView
-                            android:id="@+id/color_box_text1"
+                            android:id="@+id/aroma_box1_text1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentTop="true"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="22dp"
+                            android:layout_marginTop="18dp"
                             android:text="A구간"
                             android:textSize="19dp"
                             android:textStyle="bold"
-                            android:textColor="#FFFFFF"/>
+                            android:textColor="#FFFFFF"
+                            android:shadowColor="#000000"
+                            android:shadowRadius="5"
+                            android:shadowDx="1"
+                            android:shadowDy="1" />
                         <TextView
+                            android:id="@+id/aroma_box1_text2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/color_box_text1"
+                            android:layout_below="@id/aroma_box1_text1"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="5dp"
                             android:text="설정값 없음"
-                            android:textSize="12dp"
+                            android:textSize="17dp"
                             android:textStyle="bold"
-                            android:textColor="#FFFFFF"/>
+                            android:textColor="#FFFFFF"
+                            android:shadowColor="#000000"
+                            android:shadowRadius="5"
+                            android:shadowDx="1"
+                            android:shadowDy="1" />
                     </RelativeLayout>
                     <RelativeLayout
                         android:id="@+id/aroma_box2"
-                        android:layout_width="115dp"
-                        android:layout_height="100dp"
-                        android:layout_centerInParent="true"
-                        android:background="@drawable/aromatherapy_round_btn_gray">
+                        android:layout_width="110dp"
+                        android:layout_height="95dp"
+                        android:layout_centerInParent="true">
+                        <ImageView
+                            android:id="@+id/aroma_box2_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitXY"
+                            android:background="@drawable/aromatherapy_round_btn_gray"/>
                         <TextView
-                            android:id="@+id/color_box_text2"
+                            android:id="@+id/aroma_box2_text1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentTop="true"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="22dp"
+                            android:layout_marginTop="18dp"
                             android:text="B구간"
                             android:textSize="19dp"
                             android:textStyle="bold"
-                            android:textColor="#FFFFFF"/>
+                            android:textColor="#FFFFFF"
+                            android:shadowColor="#000000"
+                            android:shadowRadius="5"
+                            android:shadowDx="1"
+                            android:shadowDy="1" />
                         <TextView
+                            android:id="@+id/aroma_box2_text2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/color_box_text2"
+                            android:layout_below="@id/aroma_box2_text1"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="5dp"
                             android:text="설정값 없음"
-                            android:textSize="12dp"
+                            android:textSize="17dp"
                             android:textStyle="bold"
-                            android:textColor="#FFFFFF"/>
+                            android:textColor="#FFFFFF"
+                            android:shadowColor="#000000"
+                            android:shadowRadius="5"
+                            android:shadowDx="1"
+                            android:shadowDy="1" />
                     </RelativeLayout>
                     <RelativeLayout
                         android:id="@+id/aroma_box3"
-                        android:layout_width="115dp"
-                        android:layout_height="100dp"
+                        android:layout_width="110dp"
+                        android:layout_height="95dp"
                         android:layout_marginRight="5dp"
-                        android:background="@drawable/aromatherapy_round_btn_gray"
                         android:layout_alignParentRight="true">
+                        <ImageView
+                            android:id="@+id/aroma_box3_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitXY"
+                            android:background="@drawable/aromatherapy_round_btn_gray"/>
                         <TextView
-                            android:id="@+id/color_box_text3"
+                            android:id="@+id/aroma_box3_text1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentTop="true"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="22dp"
+                            android:layout_marginTop="18dp"
                             android:text="C구간"
-                            android:textSize="19dp"
+                            android:textSize="17dp"
                             android:textStyle="bold"
-                            android:textColor="#FFFFFF"/>
+                            android:textColor="#FFFFFF"
+                            android:shadowColor="#000000"
+                            android:shadowRadius="5"
+                            android:shadowDx="1"
+                            android:shadowDy="1" />
                         <TextView
+                            android:id="@+id/aroma_box3_text2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/color_box_text3"
+                            android:layout_below="@id/aroma_box3_text1"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="5dp"
                             android:text="설정값 없음"
-                            android:textSize="12dp"
+                            android:textSize="17dp"
                             android:textStyle="bold"
-                            android:textColor="#FFFFFF"/>
+                            android:textColor="#FFFFFF"
+                            android:shadowColor="#000000"
+                            android:shadowRadius="5"
+                            android:shadowDx="1"
+                            android:shadowDy="1" />/>
                     </RelativeLayout>
 
                 </RelativeLayout>
@@ -420,6 +461,7 @@
                         android:textSize="14dp"/>
                 </LinearLayout>
                 <ImageButton
+                    android:id="@+id/aroma_a_onoff"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -473,6 +515,7 @@
                         android:textSize="14dp"/>
                 </LinearLayout>
                 <ImageButton
+                    android:id="@+id/aroma_b_onoff"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -526,6 +569,7 @@
                         android:textSize="14dp"/>
                 </LinearLayout>
                 <ImageButton
+                    android:id="@+id/aroma_c_onoff"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"

@@ -58,49 +58,49 @@ public class AromaSettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 week_sum += 0x40;
-                week_sum_string += "일,";
+                week_sum_string += "일.";
             }
         });
         aroma_toggle_mon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 week_sum += 0x20;
-                week_sum_string += "월,";
+                week_sum_string += "월.";
             }
         });
         aroma_toggle_tue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 week_sum += 0x10;
-                week_sum_string += "화,";
+                week_sum_string += "화.";
             }
         });
         aroma_toggle_wed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 week_sum += 0x08;
-                week_sum_string += "수,";
+                week_sum_string += "수.";
             }
         });
         aroma_toggle_thu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 week_sum += 0x04;
-                week_sum_string += "목,";
+                week_sum_string += "목.";
             }
         });
         aroma_toggle_fri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 week_sum += 0x02;
-                week_sum_string += "금,";
+                week_sum_string += "금.";
             }
         });
         aroma_toggle_sat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 week_sum += 0x01;
-                week_sum_string +="토,";
+                week_sum_string +="토.";
             }
         });
 
