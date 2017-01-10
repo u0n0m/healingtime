@@ -108,15 +108,24 @@
                                 android:text="C"
                                 android:textColor="#7C7C7C"
                                 android:textSize="19dp"/>
-
                         </LinearLayout>
                         <RadioGroup
-                            android:id="@+id/aroma_therapy_radio_group1"
+                            android:id="@+id/aroma_therapy_radiogroup1"
                             android:layout_width="50dp"
                             android:layout_height="match_parent"
                             android:gravity="center">
                             <RadioButton
-                                android:id="@+id/aaa"
+                                android:id="@+id/aroma_therapy_radiobutton_a"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="true"/>/>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="#CDCFCA"/>
+                            <RadioButton
+                                android:id="@+id/aroma_therapy_radiobutton_b"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1" />
@@ -125,16 +134,7 @@
                                 android:layout_height="1dp"
                                 android:background="#CDCFCA"/>
                             <RadioButton
-                                android:id="@+id/bbb"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1" />
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="#CDCFCA"/>
-                            <RadioButton
-                                android:id="@+id/ccc"
+                                android:id="@+id/aroma_therapy_radiobutton_c"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1" />
@@ -407,7 +407,7 @@
                                 android:layout_marginTop="10dp"
                                 android:orientation="horizontal" >
                                 <ToggleButton
-                                    android:id="@+id/toggle_sun"
+                                    android:id="@+id/aroma_toggle_sun"
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:textAppearance="?android:attr/textAppearanceSmall"
@@ -415,7 +415,7 @@
                                     android:textOn="일" />
 
                                 <ToggleButton
-                                    android:id="@+id/toggle_mon"
+                                    android:id="@+id/aroma_toggle_mon"
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:textAppearance="?android:attr/textAppearanceSmall"
@@ -423,7 +423,7 @@
                                     android:textOn="월" />
 
                                 <ToggleButton
-                                    android:id="@+id/toggle_tue"
+                                    android:id="@+id/aroma_toggle_tue"
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:textAppearance="?android:attr/textAppearanceSmall"
@@ -431,7 +431,7 @@
                                     android:textOn="화" />
 
                                 <ToggleButton
-                                    android:id="@+id/toggle_wed"
+                                    android:id="@+id/aroma_toggle_wed"
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:textAppearance="?android:attr/textAppearanceSmall"
@@ -439,7 +439,7 @@
                                     android:textOn="수" />
 
                                 <ToggleButton
-                                    android:id="@+id/toggle_thu"
+                                    android:id="@+id/aroma_toggle_thu"
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:textAppearance="?android:attr/textAppearanceSmall"
@@ -447,7 +447,7 @@
                                     android:textOn="목" />
 
                                 <ToggleButton
-                                    android:id="@+id/toggle_fri"
+                                    android:id="@+id/aroma_toggle_fri"
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:textAppearance="?android:attr/textAppearanceSmall"
@@ -455,7 +455,7 @@
                                     android:textOn="금" />
 
                                 <ToggleButton
-                                    android:id="@+id/toggle_sat"
+                                    android:id="@+id/aroma_toggle_sat"
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:textAppearance="?android:attr/textAppearanceSmall"
@@ -527,7 +527,7 @@
                                     android:scaleType="fitXY"/>
 
                                 <SeekBar
-                                    android:id="@+id/seekbar_bright"
+                                    android:id="@+id/seekbar_cycle_time"
                                     android:layout_width="250dp"
                                     android:layout_height="35dp"
                                     android:layout_centerInParent="true"
@@ -537,6 +537,7 @@
                                     android:progressDrawable="@drawable/seekbar_colortherapy_progress"
                                     />
                                 <EditText
+                                    android:id="@+id/aroma_therapy_cycle_time"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
@@ -572,7 +573,7 @@
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
         <Button
-            android:id="@+id/buy_btn"
+            android:id="@+id/aroma_therapy_time_settings_save"
             android:layout_width="130dp"
             android:layout_height="60dp"
             android:layout_weight="1"
@@ -583,6 +584,7 @@
             android:textStyle="bold"
             android:textColor="#FFFFFF"/>
         <Button
+            android:id="@+id/aroma_therapy_time_settings_cancel"
             android:layout_width="130dp"
             android:layout_height="60dp"
             android:layout_weight="1"
