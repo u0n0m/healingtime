@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.healingtime.healingtime.MainActivity"
+    android:background="#00000000">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="15dp"
+        android:gravity="center"
+        android:background="#F4F3D7">
+        <RelativeLayout
+            android:id="@+id/aroma_name_change_top"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#35BB04">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:text="향기설정 - 이름변경"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="22dp"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/aroma_name_change_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/aroma_name_change_top">
+
+            <ImageView
+                android:id="@+id/aroma_select_image_a"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="5dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                android:gravity="center"
+                android:orientation="vertical">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Basil"
+                    android:textColor="#000000"
+                    android:textSize="15dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+
+                    android:layout_marginLeft="10dp"
+                    android:text="Ocimum basilicum"
+                    android:textColor="#000000"
+                    android:textSize="12dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_below="@+id/aroma_name_change_body"
+            android:background="#CDCFCA"/>
+
+        <LinearLayout
+            android:id="@+id/aroma_name_change_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="horizontal"
+            android:layout_below="@id/aroma_name_change_body">
+            <Button
+                android:id="@+id/aroma_select_save"
+                android:layout_width="130dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/round_btn_green"
+                android:text="변경"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"/>
+            <Button
+                android:id="@+id/aroma_select_cancel"
+                android:layout_width="130dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/round_btn_gray"
+                android:text="닫기"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

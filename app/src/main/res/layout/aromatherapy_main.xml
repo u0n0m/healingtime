@@ -361,6 +361,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_below="@+id/aroma_remaining_amount"
                 android:background="#94C84C"/>
+
             <RelativeLayout
                 android:id="@+id/aroma_spray_btn"
                 android:layout_width="match_parent"
@@ -376,6 +377,7 @@
                     android:scaleType="fitXY"
                     android:background="#00000000"/>
             </RelativeLayout>
+
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"

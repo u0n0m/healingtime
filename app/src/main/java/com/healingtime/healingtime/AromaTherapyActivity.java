@@ -39,7 +39,9 @@ public class AromaTherapyActivity extends AppCompatActivity {
         aroma_therapy_aroma_remaining_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "기기와 연결되지 않았습니다~\n연결 후 다시 시도하세요!", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "기기와 연결되지 않았습니다~\n연결 후 다시 시도하세요!", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(), AromaRemainActivity.class);
+                startActivity(intent);
             }
         });
         ImageView aroma_therapy_spray_btn = (ImageView) findViewById(R.id.aroma_therapy_spray_btn);

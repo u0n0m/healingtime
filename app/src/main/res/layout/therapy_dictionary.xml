@@ -35,6 +35,18 @@
             android:scaleType="fitCenter"
             android:background="#ffffff"
             tools:ignore="RtlHardcoded" />
+        <EditText
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            android:backgroundTint="#21f908"
+            android:maxLines="1"
+            android:hint="검색어를 입력해 주세요"
+            >
+
+
+        </EditText>
     </RelativeLayout>
     <LinearLayout
         android:id="@+id/aroma_color_select_btn"
@@ -79,7 +91,8 @@
                 android:src="@drawable/color_dic"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:background="#8CBF48"/>
+                android:background="#8CBF48"
+                android:id="@+id/color_activity_intent"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -128,92 +128,110 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
-                    <RelativeLayout
+                    <LinearLayout
                         android:id="@+id/color_box1"
                         android:layout_width="115dp"
                         android:layout_height="90dp"
                         android:layout_marginLeft="5dp"
+                        android:gravity="center"
                         android:background="@drawable/colortherapy_round_btn_red"
-                        android:layout_alignParentLeft="true">
+                        android:layout_alignParentLeft="true"
+                        android:orientation="vertical">
                         <TextView
                             android:id="@+id/color_box_text1"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="18dp"
+                            android:gravity="center"
                             android:text="빨강"
                             android:textSize="19dp"
                             android:textStyle="bold"
                             android:textColor="#FFFFFF"/>
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/color_box_text1"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="5dp"
+                            android:gravity="center"
                             android:text="무기력, 의기소침"
                             android:textSize="12dp"
                             android:textStyle="bold"
                             android:textColor="#FFFFFF"/>
-                    </RelativeLayout>
-                    <RelativeLayout
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text=" "
+                            android:textSize="12dp"
+                            android:textStyle="bold"
+                            android:textColor="#FFFFFF"/>
+                    </LinearLayout>
+                    <LinearLayout
                         android:id="@+id/color_box2"
                         android:layout_width="115dp"
                         android:layout_height="90dp"
                         android:layout_centerInParent="true"
-                        android:background="@drawable/colortherapy_round_btn_orange">
+                        android:gravity="center"
+                        android:background="@drawable/colortherapy_round_btn_orange"
+                        android:orientation="vertical">
                         <TextView
                             android:id="@+id/color_box_text2"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="18dp"
+                            android:gravity="center"
                             android:text="주황"
                             android:textSize="19dp"
                             android:textStyle="bold"
                             android:textColor="#FFFFFF"/>
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/color_box_text2"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="5dp"
-                            android:text="피로저하, 식용상승\n       기분전환"
+                            android:gravity="center"
+                            android:text="피로저하, 식용상승"
                             android:textSize="12dp"
                             android:textStyle="bold"
                             android:textColor="#FFFFFF"/>
-                    </RelativeLayout>
-                    <RelativeLayout
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="기분전환"
+                            android:textSize="12dp"
+                            android:textStyle="bold"
+                            android:textColor="#FFFFFF"/>
+                    </LinearLayout>
+                    <LinearLayout
                         android:id="@+id/color_box3"
                         android:layout_width="115dp"
                         android:layout_height="90dp"
                         android:layout_marginRight="5dp"
+                        android:gravity="center"
                         android:background="@drawable/colortherapy_round_btn_yellow"
-                        android:layout_alignParentRight="true">
+                        android:layout_alignParentRight="true"
+                        android:orientation="vertical">
                         <TextView
-                            android:id="@+id/color_box_text3"
-                            android:layout_width="wrap_content"
+                            android:id="@+id/color_box_text1"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="18dp"
+                            android:gravity="center"
                             android:text="노랑"
                             android:textSize="19dp"
                             android:textStyle="bold"
                             android:textColor="#FFFFFF"/>
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/color_box_text3"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="5dp"
-                            android:text="두뇌활동 자극,\n    활기넘침"
+                            android:gravity="center"
+                            android:text="두뇌활동 자극"
                             android:textSize="12dp"
                             android:textStyle="bold"
                             android:textColor="#FFFFFF"/>
-                    </RelativeLayout>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="활기넘침"
+                            android:textSize="12dp"
+                            android:textStyle="bold"
+                            android:textColor="#FFFFFF"/>
+                    </LinearLayout>
 
                 </RelativeLayout>
                 <RelativeLayout
@@ -312,6 +330,13 @@
 
                 </RelativeLayout>
             </RelativeLayout>
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#94C84C"/>
             <RelativeLayout
                 android:id="@+id/bright_control"
                 android:layout_width="match_parent"
@@ -321,15 +346,15 @@
                 <SeekBar
                     android:id="@+id/seekbar_bright"
                     android:layout_width="250dp"
-                    android:layout_height="25dp"
+                    android:layout_height="35dp"
                     android:layout_centerInParent="true"
                     android:progress="5"
                     android:max="10"
                     android:thumb="@drawable/seekbar_colortherapy_thumb"
                     android:progressDrawable="@drawable/seekbar_colortherapy_progress"/>
                 <ImageButton
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="20dp"
@@ -337,8 +362,8 @@
                     android:src="@drawable/bright1"
                     android:scaleType="fitXY"/>
                 <ImageButton
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="35dp"
+                    android:layout_height="32dp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="20dp"
@@ -346,6 +371,13 @@
                     android:src="@drawable/bright2"
                     android:scaleType="fitXY"/>
             </RelativeLayout>
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#94C84C"/>
             <ImageButton
                 android:id="@+id/color_therapy_onoff_btn"
                 android:layout_width="60dp"
@@ -356,22 +388,30 @@
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
                 android:background="#F4F2D9"/>
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#94C84C"/>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:layout_marginTop="15dp"
-                android:layout_below="@id/bright_control">
+                android:layout_marginTop="1dp"
+                android:layout_below="@id/aroma_spray_btn">
                 <ImageView
-                    android:id="@+id/run_time_set_image"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:id="@+id/run_time_set_image2"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
                     android:layout_marginLeft="20dp"
                     android:layout_centerVertical="true"
                     android:src="@drawable/run_time_set"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/run_time_set_image"
+                    android:layout_toRightOf="@id/run_time_set_image2"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="15dp"
                     android:text="작동시간설정"
@@ -380,14 +420,178 @@
                     android:textColor="#7A7878"/>
                 <ImageButton
                     android:id="@+id/color_therapy_timeset_btn"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="20dp"
                     android:src="@drawable/run_time_add"
                     android:background="@drawable/round_btn_run_time_set"
                     android:scaleType="fitXY"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/aroma_therapy_setting_value_a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:orientation="vertical">
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_below="@+id/aroma_digest"
+                        android:background="#CDCFCA"/>
+                    <TextView
+                        android:id="@+id/aroma_therapy_setting_a_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:text="시작시간 설정안된 ~ 종료시간 설정안됨"
+                        android:textColor="#817F73"
+                        android:textSize="14dp"/>
+                    <TextView
+                        android:id="@+id/aroma_therapy_setting_a_aroma"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:text="향기이름: 설정안됨"
+                        android:textColor="#817F73"
+                        android:textSize="14dp"/>
+                    <TextView
+                        android:id="@+id/aroma_therapy_setting_a_repeat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:text="반복: 설정안됨    주기: 설정안됨"
+                        android:textColor="#817F73"
+                        android:textSize="14dp"/>
+                </LinearLayout>
+                <ImageButton
+                    android:id="@+id/aroma_a_onoff"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/run_time_on"
+                    android:scaleType="fitCenter"
+                    android:background="#00000000"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/aroma_therapy_setting_value_b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:visibility="visible">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:orientation="vertical">
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_below="@+id/aroma_digest"
+                        android:background="#CDCFCA"/>
+                    <TextView
+                        android:id="@+id/aroma_therapy_setting_b_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:text="시작시간 설정안된 ~ 종료시간 설정안됨"
+                        android:textColor="#817F73"
+                        android:textSize="14dp"/>
+                    <TextView
+                        android:id="@+id/aroma_therapy_setting_b_aroma"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:text="향기이름: 설정안됨"
+                        android:textColor="#817F73"
+                        android:textSize="14dp"/>
+                    <TextView
+                        android:id="@+id/aroma_therapy_setting_b_repeat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:text="반복: 설정안됨    주기: 설정안됨"
+                        android:textColor="#817F73"
+                        android:textSize="14dp"/>
+                </LinearLayout>
+                <ImageButton
+                    android:id="@+id/aroma_b_onoff"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/run_time_on"
+                    android:scaleType="fitCenter"
+                    android:background="#00000000"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/aroma_therapy_setting_value_c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:visibility="visible">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:orientation="vertical">
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_below="@+id/aroma_digest"
+                        android:background="#CDCFCA"/>
+                    <TextView
+                        android:id="@+id/aroma_therapy_setting_c_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:text="시작시간 설정안된 ~ 종료시간 설정안됨"
+                        android:textColor="#817F73"
+                        android:textSize="14dp"/>
+                    <TextView
+                        android:id="@+id/aroma_therapy_setting_c_aroma"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:text="향기이름: 설정안됨"
+                        android:textColor="#817F73"
+                        android:textSize="14dp"/>
+                    <TextView
+                        android:id="@+id/aroma_therapy_setting_c_repeat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:text="반복: 설정안됨    주기: 설정안됨"
+                        android:textColor="#817F73"
+                        android:textSize="14dp"/>
+                </LinearLayout>
+                <ImageButton
+                    android:id="@+id/aroma_c_onoff"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/run_time_on"
+                    android:scaleType="fitCenter"
+                    android:background="#00000000"/>
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>
