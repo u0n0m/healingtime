@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#CDCFCA"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_alignParentLeft="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="left"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/start_ampm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="오전"
+                android:textColor="#817F73"
+                android:textSize="13dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/start_hour_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="8:10"
+                android:textColor="#817F73"
+                android:textSize="17dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="~"
+                android:textColor="#817F73"
+                android:textSize="17dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/end_ampm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="오후 "
+                android:textColor="#817F73"
+                android:textSize="13dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/end_hour_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="2:00"
+                android:textColor="#817F73"
+                android:textSize="17dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/color_bright"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="밝기: 80%"
+                android:textColor="#817F73"
+                android:textSize="13dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/week_sum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="반복: 월.수.금."
+                android:textColor="#817F73"
+                android:textSize="13dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+            <View
+                android:id="@+id/color_type"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:background="#FF0000"/>
+            <TextView
+                android:id="@+id/color_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="무기력, 의기소침"
+                android:textColor="#817F73"
+                android:textSize="13dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true">
+
+        <ImageButton
+            android:id="@+id/color_alarm_btn"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/run_time_on"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="#00000000"/>
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+
+
+
+
