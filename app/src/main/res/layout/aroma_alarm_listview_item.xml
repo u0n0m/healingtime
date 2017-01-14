@@ -75,19 +75,10 @@
             android:layout_marginBottom="5dp"
             android:orientation="horizontal">
             <TextView
-                android:id="@+id/color_bright"
+                android:id="@+id/aroma_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="밝기: 80%"
-                android:textColor="#817F73"
-                android:textSize="13dp"
-                android:textStyle="bold"/>
-            <TextView
-                android:id="@+id/color_week_sum"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="반복: 월.수.금."
+                android:text="향기이름: basil"
                 android:textColor="#817F73"
                 android:textSize="13dp"
                 android:textStyle="bold"/>
@@ -97,17 +88,20 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:orientation="horizontal">
-            <ImageView
-                android:id="@+id/color_minibox"
-                android:layout_width="17dp"
-                android:layout_height="17dp"
-                android:background="#00000000"/>
             <TextView
-                android:id="@+id/color_desc"
+                android:id="@+id/repeat_week"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="반복: 월.수.금"
+                android:textColor="#817F73"
+                android:textSize="13dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/repeat_cycle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="무기력, 의기소침"
+                android:text="주기: 30분"
                 android:textColor="#817F73"
                 android:textSize="13dp"
                 android:textStyle="bold"/>
@@ -122,7 +116,7 @@
         android:layout_centerVertical="true">
 
         <ImageButton
-            android:id="@+id/color_alarm_btn"
+            android:id="@+id/aroma_alarm_btn"
             android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"

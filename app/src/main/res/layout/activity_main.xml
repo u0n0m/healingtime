@@ -39,7 +39,7 @@
     <RelativeLayout
         android:id="@+id/main_status"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="185dp"
         android:layout_below="@id/main_top">
         <ImageView
             android:id="@+id/main_status_image1"
@@ -58,33 +58,62 @@
             android:text="잔여량 없음 (A구간)"
             android:textColor="#CD5950"
             android:textStyle="bold"/>
-        <RelativeLayout
+
+        <ViewFlipper
+            android:id="@+id/main_flipper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/main_status_image1"
-            android:background="#6A000000">
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:id="@+id/main_rolling_tv1"
+                android:focusable="true"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:focusableInTouchMode="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="10dp"
+                android:text="   어제는 되돌이킬 수 없는 우리의 것이 아니지만, 내일은 이기거나 질 수 있는 우리의 것이다. (L.B.존슨)"
+                android:textStyle="bold" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_margin="10dp"
-                android:text="오전 8:10 ~ 오전 9:10"
-                android:textStyle="bold"/>
-            <TextView
-                android:id="@+id/main_status_text_right"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_margin="10dp"
-                android:text="무기력, 의기소침"
-                android:textStyle="bold"/>
-            <View
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_toLeftOf="@id/main_status_text_right"
-                android:layout_centerInParent="true"
-                android:background="@drawable/main_status_color"                />
-        </RelativeLayout>
+                android:text="종소리처럼 맑고 분명해라.(레이)"
+                android:textStyle="bold" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_margin="10dp"
+                    android:text="오전 8:10 ~ 오전 9:10"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/main_status_text_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="10dp"
+                    android:text="무기력, 의기소침"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_centerInParent="true"
+                    android:layout_toLeftOf="@id/main_status_text_right"
+                    android:background="@drawable/main_status_color" />
+            </RelativeLayout>
+        </ViewFlipper>
+
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/main_btn_area"
@@ -212,7 +241,6 @@
                 android:textStyle="bold"/>
         </LinearLayout>
     </RelativeLayout>
-
     <ImageButton
         android:id="@+id/main_setting_btn"
         android:layout_width="wrap_content"
@@ -224,4 +252,5 @@
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
         android:background="#F4F3D7"/>
+
 </RelativeLayout>

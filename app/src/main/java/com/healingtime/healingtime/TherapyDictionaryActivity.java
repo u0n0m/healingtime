@@ -14,6 +14,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -43,14 +44,6 @@ public class TherapyDictionaryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.therapy_dictionary);
-
-/*        Handler hd = new Handler();
-        hd.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                setContentView(R.layout.aroma_description);
-            }
-        }, (1000));*/
 
         // Generate sample data
         aroma_name = new String[] {"Basil", "Bergamot - Calabrian", "Cedarwood Atlas", "Citronella Ceylon", "Clary Sage", "Cypress French", "Eucalyptus Blue Gum", "Fennel Sweet", "Frankincense", "Geranium Egypt", "Ginger", "Grapefruit White",
@@ -355,11 +348,11 @@ public class TherapyDictionaryActivity extends AppCompatActivity {
             }
         });
 
-        ImageButton ColorDictionary = (ImageButton)findViewById(R.id.color_activity_intent);
-        ColorDictionary.setOnClickListener(new View.OnClickListener(){
+        LinearLayout therapy_dictionary_color = (LinearLayout)findViewById(R.id.therapy_dictionary_color1);
+        therapy_dictionary_color.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ColorDictionaryActivity.class);
+                Intent intent = new Intent(getApplicationContext(), TherapyDictionaryColorActivity.class);
                 startActivity(intent);
             }
         });

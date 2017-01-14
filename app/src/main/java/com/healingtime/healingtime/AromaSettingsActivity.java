@@ -144,54 +144,27 @@ public class AromaSettingsActivity extends AppCompatActivity {
                 RadioButton aroma_therapy_radiobutton_b  = (RadioButton) findViewById(R.id.aroma_therapy_radiobutton_b);
                 RadioButton aroma_therapy_radiobutton_c = (RadioButton) findViewById(R.id.aroma_therapy_radiobutton_c);
 
-                SharedPreferences sp_aroma_settings = getApplicationContext().getSharedPreferences("AromaSettings", Context.MODE_PRIVATE); // 설정 정보 읽어오기
-                SharedPreferences.Editor editor = sp_aroma_settings.edit(); //sharedPreference 내용 수정
+                //기존 설정 정보 삭제(패킷으로 수신되는 내용으로 자동 갱신됨)
+                SharedPreferences sp_aroma_settings = getApplicationContext().getSharedPreferences("aromaSettings", Context.MODE_PRIVATE); // 설정 정보 읽어오기
+                Integer aroma_order = sp_aroma_settings.getInt("aroma_order", 0);
+                //if(aroma_order == 0) {aroma_order += 1;}
+                String [] aromaAlarmSettings = {"aromaSettings1", "aromaSettings2","aromaSettings3", "aromaSettings4","aromaSettings5", "aromaSettings6", "aromaSettings7", "aromaSettings8", "aromaSettings9", "aromaSettings10"};
+                if(aroma_order > 0 ) {
+                    for (int i = 1; i <= aroma_order; i++) {
+                        SharedPreferences sp_aroma_setting = getApplicationContext().getSharedPreferences(aromaAlarmSettings[i - 1], Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sp_aroma_settings.edit();
+                        editor.clear();
+                        editor.commit();
+                    }
+                    aroma_order = 0;
+                    SharedPreferences.Editor editor1 = sp_aroma_settings.edit(); //sharedPreference 내용 수정
+                    editor1.putInt("aroma_order", aroma_order); //칼라테라피 예약  번호
+                    editor1.commit();
+                }
 
-                if(aroma_therapy_radiobutton_a.isChecked()){
-                    aroma_type = 0x12;
-                    editor.putBoolean("aroma_a_type",true); //아로마 A구간 설정 여부
-                    editor.putInt("aroma_a_data1",start_hour); //아로마 A구간 Data1 필드 저장(시작시)
-                    editor.putInt("aroma_a_data2",start_minute); //아로마 A구간 Data2 필드 저장(시작분)
-                    editor.putInt("aroma_a_data3",end_hour); //아로마 A구간 설정 패킷의 Data3 필드 저장(종료시)
-                    editor.putInt("aroma_a_data4",end_minute); //아로마 A구간 설정 패킷의 Data4 필드 저장(종료분)
-                    editor.putInt("aroma_a_data5",week_sum); //아로마 A구간 설정 패킷의 Data5 필드 저장(요일)
-                    editor.putString("aroma_a_data5_1",week_sum_string); //아로마 A구간 설정 패킷의 Data5 필드 저장(요일)
-                    editor.putInt("aroma_a_data6",cycle_time); //아로마 A구간 설정 패킷의 Data6 필드 저장(분사간격)
-                    editor.putInt("aroma_a_data7",0x00); //아로마 A구간 설정 패킷의 Data7 필드 저장(아로마종류)
-                    editor.putInt("aroma_a_data8",0xFF); //아로마 A구간 설정 패킷의 Data8 필드 저장(잔여량)
-                    editor.putString("aroma_a_name", "basil");
-                    editor.commit();
-                }
-                else if(aroma_therapy_radiobutton_b.isChecked()){
-                    aroma_type = 0x13;
-                    editor.putBoolean("aroma_b_type",true); //아로마 A구간 설정 패킷여부
-                    editor.putInt("aroma_b_data1",start_hour); //아로마 A구간 Data1 필드 저장(시작시)
-                    editor.putInt("aroma_b_data2",start_minute); //아로마 A구간 Data2 필드 저장(시작분)
-                    editor.putInt("aroma_b_data3",end_hour); //아로마 A구간 설정 패킷의 Data3 필드 저장(종료시)
-                    editor.putInt("aroma_b_data4",end_minute); //아로마 A구간 설정 패킷의 Data4 필드 저장(종료분)
-                    editor.putInt("aroma_b_data5",week_sum); //아로마 A구간 설정 패킷의 Data5 필드 저장(요일)
-                    editor.putString("aroma_b_data5_1",week_sum_string); //아로마 A구간 설정 패킷의 Data5 필드 저장(요일)
-                    editor.putInt("aroma_b_data6",cycle_time); //아로마 A구간 설정 패킷의 Data6 필드 저장(분사간격)
-                    editor.putInt("aroma_b_data7",0x00); //아로마 A구간 설정 패킷의 Data7 필드 저장(아로마종류)
-                    editor.putInt("aroma_b_data8",0xFF); //아로마 A구간 설정 패킷의 Data8 필드 저장(잔여량)
-                    editor.putString("aroma_b_name", "bergamot_calabrian");
-                    editor.commit();
-                }
-                else if(aroma_therapy_radiobutton_c.isChecked()){
-                    aroma_type = 0x14;
-                    editor.putBoolean("aroma_c_type",true); //아로마 A구간 설정 패킷여부
-                    editor.putInt("aroma_c_data1",start_hour); //아로마 A구간 Data1 필드 저장(시작시)
-                    editor.putInt("aroma_c_data2",start_minute); //아로마 A구간 Data2 필드 저장(시작분)
-                    editor.putInt("aroma_c_data3",end_hour); //아로마 A구간 설정 패킷의 Data3 필드 저장(종료시)
-                    editor.putInt("aroma_c_data4",end_minute); //아로마 A구간 설정 패킷의 Data4 필드 저장(종료분)
-                    editor.putInt("aroma_c_data5",week_sum); //아로마 A구간 설정 패킷의 Data5 필드 저장(요일)
-                    editor.putString("aroma_c_data5_1",week_sum_string); //아로마 A구간 설정 패킷의 Data5 필드 저장(요일)
-                    editor.putInt("aroma_c_data6",cycle_time); //아로마 A구간 설정 패킷의 Data6 필드 저장(분사간격)
-                    editor.putInt("aroma_c_data7",0x00); //아로마 A구간 설정 패킷의 Data7 필드 저장(아로마종류)
-                    editor.putInt("aroma_c_data8",0xFF); //아로마 A구간 설정 패킷의 Data8 필드 저장(잔여량)
-                    editor.putString("aroma_c_name", "cedarwood_atlas");
-                    editor.commit();
-                }
+                if(aroma_therapy_radiobutton_a.isChecked()){ aroma_type = 0x12; }
+                else if(aroma_therapy_radiobutton_b.isChecked()){ aroma_type = 0x13; }
+                else if(aroma_therapy_radiobutton_c.isChecked()){ aroma_type = 0x14; }
 
                 //아로마 설정값 발향기로 전송
                 int finchk = 254;
@@ -204,7 +177,7 @@ public class AromaSettingsActivity extends AppCompatActivity {
                 byte end_hour = (byte) e_hour;
                 byte end_min = (byte) e_min;
                 byte week_sum = (byte) w_sum;
-                byte cycle_min = (byte) c_time;  //30분 테스트용
+                byte cycle_min = (byte) c_time;
                 byte aroma_type = (byte) 0x00;  //향기종류 //현재 사용하지 않음 // 그냥 0으로 설정
                 byte aroma_remain = (byte) 0xFF; // 잔여량
                 byte padding = (byte) 0x00;  //단순 패딩임..

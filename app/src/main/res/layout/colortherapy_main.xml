@@ -207,7 +207,7 @@
                         android:layout_alignParentRight="true"
                         android:orientation="vertical">
                         <TextView
-                            android:id="@+id/color_box_text1"
+                            android:id="@+id/color_box_text3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
@@ -337,6 +337,16 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="#94C84C"/>
+            <TextView
+                android:id="@+id/seekbar_bright_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:text="5"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="#A2CE4A"/>
             <RelativeLayout
                 android:id="@+id/bright_control"
                 android:layout_width="match_parent"
@@ -434,7 +444,6 @@
                 android:id="@+id/color_therapy_alarm_listview"
                 android:layout_width="match_parent"
                 android:layout_height="500dp">
-
             </ListView>
 
 

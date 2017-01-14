@@ -2,17 +2,50 @@ package com.healingtime.healingtime;
 
 import android.graphics.drawable.Drawable;
 
-public class ColorAlarmListviewItem {
+public class aromaAlarmListviewItem {
 
+    private Integer aroma_type;
     private String start_ampm;
     private String start_hour_min;
     private String end_ampm;
     private String end_hour_min;
     private String week;
-    private String bright;
-    private String Desc;
-    private Drawable MiniColorBox;
-    private Drawable img_btn;
+    private Integer repeat_cycle;
+    private Integer remain_amount;
+
+    public Drawable getAroma_alarm_onoff() {
+        return aroma_alarm_onoff;
+    }
+
+    public void setAroma_alarm_onoff(Drawable aroma_alarm_onoff) {
+        this.aroma_alarm_onoff = aroma_alarm_onoff;
+    }
+
+    private Drawable aroma_alarm_onoff;
+
+    public Integer getRemain_amount() {
+        return remain_amount;
+    }
+
+    public void setRemain_amount(Integer remain_amount) {
+        this.remain_amount = remain_amount;
+    }
+
+    public Integer getRepeat_cycle() {
+        return repeat_cycle;
+    }
+
+    public void setRepeat_cycle(Integer repeat_cycle) {
+        this.repeat_cycle = repeat_cycle;
+    }
+
+    public Integer getAroma_type() {
+        return aroma_type;
+    }
+
+    public void setAroma_type(Integer aroma_type) {
+        this.aroma_type = aroma_type;
+    }
 
     public String getEnd_ampm() {
         return end_ampm;
@@ -52,40 +85,6 @@ public class ColorAlarmListviewItem {
 
     public void setWeek(String week) {
         this.week = week;
-    }
-
-    public String getBright() {
-        return bright;
-    }
-
-    public void setBright(Integer bright) {
-        this.bright = "밝기: " + bright * 10 + "%";
-    }
-
-    public String getDesc() {
-        return Desc;
-    }
-
-    public void setDesc(String desc) {
-        this.Desc = desc;
-    }
-
-
-    public Drawable getMiniColorBox() {
-        return MiniColorBox;
-    }
-
-    public void setMiniColorBox(Drawable miniColorBox) {
-        MiniColorBox = miniColorBox;
-    }
-
-
-    public Drawable getImg_btn() {
-        return img_btn;
-    }
-
-    public void setImg_btn(Drawable img_btn) {
-        this.img_btn = img_btn;
     }
 
 }
