@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,15 +26,62 @@ import static com.healingtime.healingtime.R.drawable.color_yellow;
 import static com.healingtime.healingtime.R.drawable.run_time_on;
 
 public class ColorTherapyActivity extends AppCompatActivity {
-    boolean light_onoff = true;
+    boolean light_onoff = false;
+    private Integer color_type = 1; //Color 종류 1.RED 2. Orange 3.Yellow 4.Green 5.Blue 6.USER
     private Integer color_bright = 5;
+    RadioGroup color_radio_group1, color_radio_group2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.colortherapy_main);
 
-        //밝기 값을 변수에 textview에 저장
+        color_radio_group1 = (RadioGroup) findViewById(R.id.color_radio_group1);
+        color_radio_group2 = (RadioGroup) findViewById(R.id.color_radio_group2);
+        color_radio_group1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // TODO Auto-generated method stub
+                switch (checkedId) {
+                    case R.id.color_box1:
+                        color_type = 1;
+                        color_radio_group2.clearCheck();
+                        break;
+                    case R.id.color_box2:
+                        color_type = 2;
+                        color_radio_group2.clearCheck();
+                        break;
+                    case R.id.color_box3:
+                        color_type = 3;
+                        color_radio_group2.clearCheck();
+                        break;
+                    default:
+                        //Toast.makeText(getApplicationContext(), "radio btn select plz", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        color_radio_group2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // TODO Auto-generated method stub
+                switch (checkedId) {
+                    case R.id.color_box4:
+                        color_type = 4;
+                        color_radio_group1.clearCheck();
+                        break;
+                    case R.id.color_box5:
+                        color_type = 5;
+                        color_radio_group1.clearCheck();
+                        break;
+                    case R.id.color_box6:
+                        color_type = 6;
+                        color_radio_group1.clearCheck();
+                        break;
+                    default:
+                        //Toast.makeText(getApplicationContext(), "radio btn select plz", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        //밝기 값을 textview에 설정
         SeekBar seekbar_bright = (SeekBar) findViewById(R.id.seekbar_bright);
         seekbar_bright.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
             public void onProgressChanged(SeekBar seekBar, int bright, boolean fromUser){
@@ -47,17 +95,39 @@ public class ColorTherapyActivity extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {            }
         });
 
-        final ImageButton color_therapy_onoff_btn = (ImageButton) findViewById(R.id.color_therapy_onoff_btn);
-        color_therapy_onoff_btn.setOnClickListener(new View.OnClickListener() {
+        final ImageButton color_therapy_lighton_now_btn = (ImageButton) findViewById(R.id.color_therapy_lighton_now_btn);
+        color_therapy_lighton_now_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Toast.makeText(getApplicationContext(), "기기와 연결되지 않았습니다~\n연결 후 다시 시도하세요!", Toast.LENGTH_LONG).show();
                 if(light_onoff == true){
-                    color_therapy_onoff_btn.setImageResource(color_therapy_off);
+                    color_therapy_lighton_now_btn.setImageResource(color_therapy_off);
                     light_onoff = false;
+                    int lighton_now_temp = (0x20 | color_type);
+                    byte lighton_now = (byte) lighton_now_temp;
+                    int color_bright_now_temp = color_bright;
+                    byte color_bright_now = (byte) color_bright_now_temp;
+                    int finchk = 254;   byte fin = (byte)finchk;
+                    byte [] lighton_pkt = {0x10, 0x11, 0x00, 0x00, 0x00, 0x00, 0x00, color_bright_now, 0x00, 0x00, 0x00, lighton_now, fin};
+                    try {
+                        ((MainActivity) MainActivity.mContext).mOutputStream.write(lighton_pkt);
+                    }catch(Exception  e){
+                        e.printStackTrace();
+                    }
                 }else if(light_onoff == false){
-                    color_therapy_onoff_btn.setImageResource(color_therapy_on);
+                    color_therapy_lighton_now_btn.setImageResource(color_therapy_on);
                     light_onoff = true;
+                    int lighton_now_temp = (0x30 | color_type);
+                    byte lighton_now = (byte) lighton_now_temp;
+                    int color_bright_now_temp = color_bright;
+                    byte color_bright_now = (byte) color_bright_now_temp;
+                    int finchk = 254;   byte fin = (byte)finchk;
+                    byte [] lighton_pkt = {0x10, 0x11, 0x00, 0x00, 0x00, 0x00, 0x00, color_bright_now, 0x00, 0x00, 0x00, lighton_now, fin};
+                    try {
+                        ((MainActivity) MainActivity.mContext).mOutputStream.write(lighton_pkt);
+                    }catch(Exception  e){
+                        e.printStackTrace();
+                    }
                 }
             }
         });
@@ -138,8 +208,11 @@ public class ColorTherapyActivity extends AppCompatActivity {
                 else if(end_hour <= 12)  {end_ampm = "오전"; }
 
                 //작동 요일 값(비트)을 문자열로 변경
+                byte montosun_bit = 0x7F; //월요일부터 일요일까지 모두 설정한 경우
+                byte montosatur_bit = 0x3F; //월요일부터 토요일까지 모두 설정한 경우
+                byte montofri_bit = 0x3E; //월요일부터 금요일까지 모두 설정한 경우
                 byte sunday_bit = 0x40 , monday_bit = 0x20, tuesday_bit = 0x10, wednesday_bit = 0x08, thursday_bit = 0x04, friday_bit = 0x02, saturday_bit = 0x01;
-                String week_sum_string = "";
+                String week_sum_string = "반복: ";
                 if((week_sum & sunday_bit) == 0x40 ) { week_sum_string += "일."; }
                 if((week_sum & monday_bit) == 0x20 ) { week_sum_string += "월."; }
                 if((week_sum & tuesday_bit) == 0x10 ) { week_sum_string += "화."; }
@@ -147,6 +220,10 @@ public class ColorTherapyActivity extends AppCompatActivity {
                 if((week_sum & thursday_bit) == 0x04 ) { week_sum_string += "목."; }
                 if((week_sum & friday_bit) == 0x02 ) { week_sum_string += "금."; }
                 if((week_sum & saturday_bit) == 0x01 ) { week_sum_string += "토."; }
+                week_sum_string += "요일";
+                if((week_sum & montosun_bit) == 0x7F ) { week_sum_string = "반복: 월 ~ 일요일"; }
+                if((week_sum & montosun_bit) == 0x3F ) { week_sum_string = "반복: 월 ~ 토요일"; }
+                if((week_sum & montosun_bit) == 0x3E ) { week_sum_string = "반복: 월 ~ 금요일"; }
 
                 String color_desc = "";
                 Integer color_view = color_green;

@@ -116,220 +116,66 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:orientation="vertical">
-            <RelativeLayout
-                android:id="@+id/color_therapy_btn_area"
+
+            <RadioGroup
+                android:id="@+id/color_radio_group1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:checkedButton="@+id/color_box1">
+                <RadioButton
+                    android:id="@+id/color_box1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="2dp"
+                    android:button="@drawable/color_red_btn" />
+                <RadioButton
+                    android:id="@+id/color_box2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_margin="2dp"
+                    android:button="@drawable/color_orange_btn"/>
+                <RadioButton
+                    android:id="@+id/color_box3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="2dp"
+                    android:button="@drawable/color_yellow_btn"/>
+            </RadioGroup>
+            <RadioGroup
+                android:id="@+id/color_radio_group2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/color_therapy_status">
-                <RelativeLayout
-                    android:id="@+id/color_boxes1"
-                    android:layout_width="match_parent"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/color_box4"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
-                    <LinearLayout
-                        android:id="@+id/color_box1"
-                        android:layout_width="115dp"
-                        android:layout_height="90dp"
-                        android:layout_marginLeft="5dp"
-                        android:gravity="center"
-                        android:background="@drawable/colortherapy_round_btn_red"
-                        android:layout_alignParentLeft="true"
-                        android:orientation="vertical">
-                        <TextView
-                            android:id="@+id/color_box_text1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="빨강"
-                            android:textSize="19dp"
-                            android:textStyle="bold"
-                            android:textColor="#FFFFFF"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="무기력, 의기소침"
-                            android:textSize="12dp"
-                            android:textStyle="bold"
-                            android:textColor="#FFFFFF"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text=" "
-                            android:textSize="12dp"
-                            android:textStyle="bold"
-                            android:textColor="#FFFFFF"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:id="@+id/color_box2"
-                        android:layout_width="115dp"
-                        android:layout_height="90dp"
-                        android:layout_centerInParent="true"
-                        android:gravity="center"
-                        android:background="@drawable/colortherapy_round_btn_orange"
-                        android:orientation="vertical">
-                        <TextView
-                            android:id="@+id/color_box_text2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="주황"
-                            android:textSize="19dp"
-                            android:textStyle="bold"
-                            android:textColor="#FFFFFF"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="피로저하, 식용상승"
-                            android:textSize="12dp"
-                            android:textStyle="bold"
-                            android:textColor="#FFFFFF"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="기분전환"
-                            android:textSize="12dp"
-                            android:textStyle="bold"
-                            android:textColor="#FFFFFF"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:id="@+id/color_box3"
-                        android:layout_width="115dp"
-                        android:layout_height="90dp"
-                        android:layout_marginRight="5dp"
-                        android:gravity="center"
-                        android:background="@drawable/colortherapy_round_btn_yellow"
-                        android:layout_alignParentRight="true"
-                        android:orientation="vertical">
-                        <TextView
-                            android:id="@+id/color_box_text3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="노랑"
-                            android:textSize="19dp"
-                            android:textStyle="bold"
-                            android:textColor="#FFFFFF"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="두뇌활동 자극"
-                            android:textSize="12dp"
-                            android:textStyle="bold"
-                            android:textColor="#FFFFFF"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="활기넘침"
-                            android:textSize="12dp"
-                            android:textStyle="bold"
-                            android:textColor="#FFFFFF"/>
-                    </LinearLayout>
-
-                </RelativeLayout>
-                <RelativeLayout
-                    android:id="@+id/color_boxes2"
-                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="2dp"
+                    android:button="@drawable/color_green_btn"/>
+                <RadioButton
+                    android:id="@+id/color_box5"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_below="@id/color_boxes1"
-                    android:orientation="horizontal">
-                    <RelativeLayout
-                        android:id="@+id/color_box4"
-                        android:layout_width="115dp"
-                        android:layout_height="90dp"
-                        android:layout_marginLeft="5dp"
-                        android:background="@drawable/colortherapy_round_btn_green"
-                        android:layout_alignParentLeft="true">
-                        <TextView
-                            android:id="@+id/color_box_text4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="18dp"
-                            android:text="초록"
-                            android:textSize="19dp"
-                            android:textStyle="bold"
-                            android:textColor="#FFFFFF"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/color_box_text4"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="5dp"
-                            android:text="근육/눈피로,\n  몸의 균형"
-                            android:textSize="12dp"
-                            android:textStyle="bold"
-                            android:textColor="#FFFFFF"/>
-                    </RelativeLayout>
-                    <RelativeLayout
-                        android:id="@+id/color_box5"
-                        android:layout_width="115dp"
-                        android:layout_height="90dp"
-                        android:layout_centerInParent="true"
-                        android:background="@drawable/colortherapy_round_btn_blue">
-                        <TextView
-                            android:id="@+id/color_box_text5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="18dp"
-                            android:text="파랑"
-                            android:textSize="19dp"
-                            android:textStyle="bold"
-                            android:textColor="#FFFFFF"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/color_box_text5"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="5dp"
-                            android:text="집중/창의력 향상,\n     마음 안정"
-                            android:textSize="12dp"
-                            android:textStyle="bold"
-                            android:textColor="#FFFFFF"/>
-                    </RelativeLayout>
-                    <RelativeLayout
-                        android:id="@+id/color_box6"
-                        android:layout_width="115dp"
-                        android:layout_height="90dp"
-                        android:layout_marginRight="5dp"
-                        android:background="@drawable/colortherapy_round_btn_custom"
-                        android:layout_alignParentRight="true">
-                        <TextView
-                            android:id="@+id/color_box_text6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="18dp"
-                            android:text="색상선택"
-                            android:textSize="19dp"
-                            android:textStyle="bold"
-                            android:textColor="#FFFFFF"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/color_box_text6"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="5dp"
-                            android:text="사용자 설정"
-                            android:textSize="12dp"
-                            android:textStyle="bold"
-                            android:textColor="#FFFFFF"/>
-                    </RelativeLayout>
-
-                </RelativeLayout>
-            </RelativeLayout>
+                    android:layout_weight="1"
+                    android:layout_margin="2dp"
+                    android:button="@drawable/color_blue_btn"/>
+                <RadioButton
+                    android:id="@+id/color_box6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="2dp"
+                    android:button="@drawable/color_custom_btn"/>
+            </RadioGroup>
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
@@ -351,8 +197,7 @@
                 android:id="@+id/bright_control"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_below="@id/color_therapy_btn_area">
+                android:layout_marginTop="10dp">
                 <SeekBar
                     android:id="@+id/seekbar_bright"
                     android:layout_width="250dp"
@@ -389,7 +234,7 @@
                 android:layout_marginRight="10dp"
                 android:background="#94C84C"/>
             <ImageButton
-                android:id="@+id/color_therapy_onoff_btn"
+                android:id="@+id/color_therapy_lighton_now_btn"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
