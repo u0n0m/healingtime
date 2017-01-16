@@ -103,12 +103,14 @@ public class ColorTherapyActivity extends AppCompatActivity {
                 if(light_onoff == true){
                     color_therapy_lighton_now_btn.setImageResource(color_therapy_off);
                     light_onoff = false;
-                    int lighton_now_temp = (0x20 | color_type);
-                    byte lighton_now = (byte) lighton_now_temp;
+                    int week_sum_temp = 0x2A;
+                    byte week_sum = (byte)week_sum_temp;
                     int color_bright_now_temp = color_bright;
                     byte color_bright_now = (byte) color_bright_now_temp;
+                    int lighton_now_temp = (0x20 | color_type);
+                    byte lighton_now = (byte) lighton_now_temp;
                     int finchk = 254;   byte fin = (byte)finchk;
-                    byte [] lighton_pkt = {0x10, 0x11, 0x00, 0x00, 0x00, 0x00, 0x00, color_bright_now, 0x00, 0x00, 0x00, lighton_now, fin};
+                    byte [] lighton_pkt = {0x10, 0x11, 0x00, 0x00, 0x00, 0x00, week_sum, color_bright_now, 0x00, 0x00, 0x00, lighton_now, fin};
                     try {
                         ((MainActivity) MainActivity.mContext).mOutputStream.write(lighton_pkt);
                     }catch(Exception  e){
@@ -117,12 +119,14 @@ public class ColorTherapyActivity extends AppCompatActivity {
                 }else if(light_onoff == false){
                     color_therapy_lighton_now_btn.setImageResource(color_therapy_on);
                     light_onoff = true;
+                    int week_sum_temp = 0x2A;
+                    byte week_sum = (byte)week_sum_temp;
                     int lighton_now_temp = (0x30 | color_type);
                     byte lighton_now = (byte) lighton_now_temp;
                     int color_bright_now_temp = color_bright;
                     byte color_bright_now = (byte) color_bright_now_temp;
                     int finchk = 254;   byte fin = (byte)finchk;
-                    byte [] lighton_pkt = {0x10, 0x11, 0x00, 0x00, 0x00, 0x00, 0x00, color_bright_now, 0x00, 0x00, 0x00, lighton_now, fin};
+                    byte [] lighton_pkt = {0x10, 0x11, 0x00, 0x00, 0x00, 0x00, week_sum, color_bright_now, 0x00, 0x00, 0x00, lighton_now, fin};
                     try {
                         ((MainActivity) MainActivity.mContext).mOutputStream.write(lighton_pkt);
                     }catch(Exception  e){
@@ -141,7 +145,7 @@ public class ColorTherapyActivity extends AppCompatActivity {
             }
         });
 
-        LinearLayout color_therapy_bottom_to_color_therapy = (LinearLayout) findViewById(R.id.color_therapy_bottom_to_color_therapy);
+/*        LinearLayout color_therapy_bottom_to_color_therapy = (LinearLayout) findViewById(R.id.color_therapy_bottom_to_color_therapy);
         color_therapy_bottom_to_color_therapy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -168,8 +172,40 @@ public class ColorTherapyActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "기기와 연결되지 않았습니다~\n연결 후 다시 시도하세요!", Toast.LENGTH_LONG).show();
             }
-        });
+        });*/
 
+        //하단 바 클릭 이벤트 처리
+        LinearLayout link_color_therapy = (LinearLayout)findViewById(R.id.link_color_therapy);
+        link_color_therapy.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), ColorTherapyActivity.class);
+//                startActivity(intent);
+            }
+        });
+        LinearLayout link_aroma_therapy = (LinearLayout)findViewById(R.id.link_aroma_therapy);
+        link_aroma_therapy.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AromaTherapyActivity.class);
+                startActivity(intent);
+            }
+        });
+        LinearLayout link_dictionary = (LinearLayout)findViewById(R.id.link_dictionary);
+        link_dictionary.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), TherapyDictionaryActivity.class);
+                startActivity(intent);
+            }
+        });
+        LinearLayout link_settings = (LinearLayout)findViewById(R.id.link_settings);
+        link_settings.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "준비중입니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

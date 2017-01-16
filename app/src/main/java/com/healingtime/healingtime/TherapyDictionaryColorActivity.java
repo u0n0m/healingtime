@@ -1,5 +1,6 @@
 package com.healingtime.healingtime;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.text.style.RelativeSizeSpan;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by scr44 on 2017-01-10.
@@ -21,16 +23,16 @@ public class TherapyDictionaryColorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.therapy_dictionary_color);
 
-        String red = "Red : 빨강";
+        String red = "Red: 빨강";
         SpannableStringBuilder ss_red = new SpannableStringBuilder(red);
-        ss_red.setSpan(new RelativeSizeSpan(1.4f), 0,3, 0); // set size
+        ss_red.setSpan(new RelativeSizeSpan(1.6f), 0, 5, 0); // set size
         ss_red.setSpan(new ForegroundColorSpan(Color.WHITE), 0, red.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);// set color
         TextView t_red = (TextView) findViewById(R.id.color_dictionary_red);
         t_red.setText(ss_red);
 
         String red_contents = "식욕과 혈압을 왕성하게 해 주는 에너지의 색으로 교감신경을 자극하고 에너지를 끌어올려 주는 역할을 한다. 이 때문에 무기력하거나 의기소침한 사람, 극심한 피로에 시달리는 사람에게 적합한 색이다. 마음이 산만해지고 답답할 때는 피해야 한다.";
         SpannableStringBuilder ss_red_contents = new SpannableStringBuilder(red_contents);
-        ss_red_contents.setSpan(new RelativeSizeSpan(1.1f), 0, red_contents.length(), 0);
+        ss_red_contents.setSpan(new RelativeSizeSpan(1.0f), 0, red_contents.length(), 0);
         ss_red_contents.setSpan(new ForegroundColorSpan(Color.rgb(207,72,62)), 0, 24, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         ss_red_contents.setSpan(new ForegroundColorSpan(Color.rgb(207,72,62)), 65, 97, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         ss_red_contents.setSpan(new ForegroundColorSpan(Color.rgb(207,72,62)), 109, 129, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -107,6 +109,48 @@ public class TherapyDictionaryColorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 onBackPressed();
                 finish();
+            }
+        });
+
+        LinearLayout therapy_dictionary_color = (LinearLayout)findViewById(R.id.therapy_dictionary_color2);
+        therapy_dictionary_color.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), TherapyDictionaryColorActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //하단 바 클릭 이벤트 처리
+        LinearLayout link_color_therapy = (LinearLayout)findViewById(R.id.link_color_therapy);
+        link_color_therapy.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ColorTherapyActivity.class);
+                startActivity(intent);
+            }
+        });
+        LinearLayout link_aroma_therapy = (LinearLayout)findViewById(R.id.link_aroma_therapy);
+        link_aroma_therapy.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AromaTherapyActivity.class);
+                startActivity(intent);
+            }
+        });
+        LinearLayout link_dictionary = (LinearLayout)findViewById(R.id.link_dictionary);
+        link_dictionary.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), TherapyDictionaryActivity.class);
+//                startActivity(intent);
+            }
+        });
+        LinearLayout link_settings = (LinearLayout)findViewById(R.id.link_settings);
+        link_settings.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "준비중입니다.", Toast.LENGTH_SHORT).show();
             }
         });
     }

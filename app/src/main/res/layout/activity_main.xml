@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.healingtime.healingtime.MainActivity"
-    android:background="#F4F3D7">
+    android:background="#F8F8F8">
 
     <RelativeLayout
         android:id="@+id/main_top"
@@ -127,59 +127,21 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="10dp"
             android:orientation="vertical"
             android:gravity="center">
-            <RelativeLayout
-                android:layout_width="95dp"
-                android:layout_height="94dp">
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/main_round_btn_shadow"/>
-                <ImageView
-                    android:id="@+id/main_color_therapy_btn"
-                    android:layout_width="92dp"
-                    android:layout_height="92dp"
-                    android:layout_alignParentLeft="true"
-                    android:background="@drawable/main_round_btn"
-                    android:src="@drawable/main_colortherapy"
-                    android:padding="28dp"/>
-            </RelativeLayout>
-            <TextView
-                android:layout_width="110dp"
-                android:layout_height="30dp"
-                android:gravity="center"
-                android:text="칼라 테라피"
-                android:textColor="#8A000000"
-                android:textSize="17dp"
-                android:textStyle="bold"/>
-            <RelativeLayout
-                android:layout_width="95dp"
-                android:layout_height="94dp"
-                android:layout_marginTop="20dp">
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/main_round_btn_shadow"/>
-                <ImageView
-                    android:id="@+id/main_therapy_dictionary_btn"
-                    android:layout_width="92dp"
-                    android:layout_height="92dp"
-                    android:layout_alignParentLeft="true"
-                    android:background="@drawable/main_round_btn"
-                    android:src="@drawable/main_therapy_dic"
-                    android:padding="26dp"/>
-            </RelativeLayout>
-            <TextView
-                android:layout_width="110dp"
-                android:layout_height="30dp"
-                android:gravity="center"
-                android:text="테라피 사전"
-                android:textColor="#8A000000"
-                android:textSize="17dp"
-                android:textStyle="bold"/>
-
+            <ImageButton
+                android:id="@+id/main_color_therapy_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/main_color_btn"/>
+            <ImageButton
+                android:id="@+id/main_therapy_dictionary_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/main_color_btn"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/main_btn_area_right"
@@ -187,58 +149,21 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="40dp"
+            android:layout_marginRight="10dp"
             android:orientation="vertical"
             android:gravity="center">
-            <RelativeLayout
-                android:layout_width="95dp"
-                android:layout_height="94dp">
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/main_round_btn_shadow"/>
-                <ImageView
-                    android:id="@+id/main_aroma_therapy_btn"
-                    android:layout_width="92dp"
-                    android:layout_height="92dp"
-                    android:layout_alignParentLeft="true"
-                    android:background="@drawable/main_round_btn"
-                    android:src="@drawable/main_aromatherapy"
-                    android:padding="30dp"/>
-            </RelativeLayout>
-            <TextView
-                android:layout_width="110dp"
-                android:layout_height="30dp"
-                android:gravity="center"
-                android:text="아로마 테라피"
-                android:textColor="#8A000000"
-                android:textSize="17dp"
-                android:textStyle="bold"/>
-            <RelativeLayout
-                android:layout_width="95dp"
-                android:layout_height="94dp"
-                android:layout_marginTop="20dp">
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/main_round_btn_shadow"/>
-                <ImageView
-                    android:id="@+id/main_market_btn"
-                    android:layout_width="92dp"
-                    android:layout_height="92dp"
-                    android:layout_alignParentLeft="true"
-                    android:background="@drawable/main_round_btn"
-                    android:src="@drawable/main_market"
-                    android:padding="28dp"/>
-            </RelativeLayout>
-            <TextView
-                android:layout_width="110dp"
-                android:layout_height="30dp"
-                android:gravity="center"
-                android:text="마켓"
-                android:textColor="#8A000000"
-                android:textSize="17dp"
-                android:textStyle="bold"/>
+            <ImageButton
+                android:id="@+id/main_aroma_therapy_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/main_aroma_btn"/>
+            <ImageButton
+                android:id="@+id/main_market_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/main_aroma_btn"/>
         </LinearLayout>
     </RelativeLayout>
     <ImageButton
@@ -251,6 +176,6 @@
         android:src="@drawable/settings_green"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
-        android:background="#F4F3D7"/>
+        android:background="#FFFFFF"/>
 
 </RelativeLayout>

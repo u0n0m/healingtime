@@ -20,6 +20,7 @@ public class AromaSettingsActivity extends AppCompatActivity {
     private String week_sum_string = "반복: ";
     private Integer cycle_time = 30;
     private Integer remain_amount;
+    private Integer packet_type;
 
     @Override
     public void onBackPressed() {
@@ -110,13 +111,12 @@ public class AromaSettingsActivity extends AppCompatActivity {
                 cycle_time = time;
                 EditText aroma_therapy_cycle_time = (EditText) findViewById(R.id.aroma_therapy_cycle_time);
                 aroma_therapy_cycle_time.setText(cycle_time.toString() + "분");
+            }
 
-            }
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+            }            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
             }
         });
 
@@ -144,45 +144,48 @@ public class AromaSettingsActivity extends AppCompatActivity {
                 RadioButton aroma_therapy_radiobutton_b  = (RadioButton) findViewById(R.id.aroma_therapy_radiobutton_b);
                 RadioButton aroma_therapy_radiobutton_c = (RadioButton) findViewById(R.id.aroma_therapy_radiobutton_c);
 
-                //기존 설정 정보 삭제(패킷으로 수신되는 내용으로 자동 갱신됨)
+                if(aroma_therapy_radiobutton_a.isChecked()){ aroma_type = 0x01; packet_type = 0x12; }
+                else if(aroma_therapy_radiobutton_b.isChecked()){ aroma_type = 0x02; packet_type = 0x13; }
+                else if(aroma_therapy_radiobutton_c.isChecked()){ aroma_type = 0x03;  packet_type = 0x14; }
+
+                //아로마 설정 저장
                 SharedPreferences sp_aroma_settings = getApplicationContext().getSharedPreferences("aromaSettings", Context.MODE_PRIVATE); // 설정 정보 읽어오기
                 Integer aroma_order = sp_aroma_settings.getInt("aroma_order", 0);
-                //if(aroma_order == 0) {aroma_order += 1;}
-                String [] aromaAlarmSettings = {"aromaSettings1", "aromaSettings2","aromaSettings3", "aromaSettings4","aromaSettings5", "aromaSettings6", "aromaSettings7", "aromaSettings8", "aromaSettings9", "aromaSettings10"};
-                if(aroma_order > 0 ) {
-                    for (int i = 1; i <= aroma_order; i++) {
-                        SharedPreferences sp_aroma_setting = getApplicationContext().getSharedPreferences(aromaAlarmSettings[i - 1], Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sp_aroma_settings.edit();
-                        editor.clear();
-                        editor.commit();
-                    }
-                    aroma_order = 0;
-                    SharedPreferences.Editor editor1 = sp_aroma_settings.edit(); //sharedPreference 내용 수정
-                    editor1.putInt("aroma_order", aroma_order); //칼라테라피 예약  번호
-                    editor1.commit();
-                }
+                aroma_order += 1;
+                SharedPreferences.Editor editor1 = sp_aroma_settings.edit(); //sharedPreference 내용 수정
+                editor1.putInt("aroma_order", aroma_order); //칼라테라피 예약  번호
+                editor1.commit();
 
-                if(aroma_therapy_radiobutton_a.isChecked()){ aroma_type = 0x12; }
-                else if(aroma_therapy_radiobutton_b.isChecked()){ aroma_type = 0x13; }
-                else if(aroma_therapy_radiobutton_c.isChecked()){ aroma_type = 0x14; }
+                String [] aromaAlarmSettings = {"aromaSettings1","aromaSettings2", "aromaSettings3","aromaSettings4", "aromaSettings5", "aromaSettings6", "aromaSettings7"};
+                SharedPreferences sp_aroma_setting = getApplicationContext().getSharedPreferences(aromaAlarmSettings[aroma_order-1], Context.MODE_PRIVATE); // 설정 정보 읽어오기
+                SharedPreferences.Editor editor = sp_aroma_setting.edit(); //sharedPreference 내용 수정
+                editor.putInt("start_hour",start_hour); //칼라테라피 Data1 필드 저장(시작시)
+                editor.putInt("start_minute",start_minute); //칼라테라피 Data2 필드 저장(시작분)
+                editor.putInt("end_hour",end_hour); //칼라테라피 설정 패킷의 Data3 필드 저장(종료시)
+                editor.putInt("end_minute",end_minute); //칼라테라피 설정 패킷의 Data4 필드 저장(종료분)
+                editor.putInt("week_sum",week_sum); //칼라테라피 설정 패킷의 Data5 필드 저장(요일)
+                editor.putInt("repeat_cycle", cycle_time); //
+                editor.putInt("aroma_type",aroma_type); //
+                //editor.putInt("remain_amount", remain_amount); //
+                editor.commit();
 
                 //아로마 설정값 발향기로 전송
                 int finchk = 254;
                 int s_hour = start_hour, s_min=start_minute, e_hour = end_hour, e_min = end_minute, w_sum = week_sum, c_time = cycle_time;
-
+                int a_type = aroma_type, pkt_type = packet_type;
                 byte start_frame = (byte) 0x10; //프레임 시작
-                byte type_frame = (byte) aroma_type;
+                byte packet_type = (byte) pkt_type;
                 byte start_hour = (byte) s_hour;
                 byte start_min = (byte) s_min;
                 byte end_hour = (byte) e_hour;
                 byte end_min = (byte) e_min;
                 byte week_sum = (byte) w_sum;
                 byte cycle_min = (byte) c_time;
-                byte aroma_type = (byte) 0x00;  //향기종류 //현재 사용하지 않음 // 그냥 0으로 설정
-                byte aroma_remain = (byte) 0xFF; // 잔여량
+                byte aroma_type = (byte) a_type;  //향기종류 //현재 사용하지 않음 // 그냥 0으로 설정
+                byte aroma_remain = (byte) 0xF0; // 잔여량(임의의 값)
                 byte padding = (byte) 0x00;  //단순 패딩임..
                 byte fin_frame = (byte) finchk; // 프레임 종료
-                byte [] aroma_set = {start_frame, type_frame, start_hour, start_min, end_hour, end_min, week_sum, cycle_min, aroma_type, aroma_remain, padding, padding, fin_frame};
+                byte [] aroma_set = {start_frame, packet_type, start_hour, start_min, end_hour, end_min, week_sum, cycle_min, aroma_type, aroma_remain, padding, padding, fin_frame};
 
                 try {
                     ((MainActivity) MainActivity.mContext).mOutputStream.write(aroma_set);
@@ -193,4 +196,5 @@ public class AromaSettingsActivity extends AppCompatActivity {
             }
         });
     }
+
 }

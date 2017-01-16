@@ -11,19 +11,49 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import static com.healingtime.healingtime.R.drawable.run_time_on;
 
 public class AromaTherapyActivity extends AppCompatActivity {
     boolean run_time_a_onoff = true, run_time_b_onoff = true, run_time_c_onoff = true;
+    private byte aroma_type;
+    private Integer start_hour =6, start_minute=30, end_hour=19, end_minute=30;
+    private Integer week_sum = 0;
+    private String week_sum_string = "반복: ";
+    private Integer cycle_time = 30;
+    private Integer remain_amount;
+    Integer pkt_type = 0x12;
+
+    RadioGroup aroma_radio_group1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.aromatherapy_main);
 
+        aroma_radio_group1 = (RadioGroup) findViewById(R.id.aroma_radio_group1);
+        aroma_radio_group1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // TODO Auto-generated method stub
+                switch (checkedId) {
+                    case R.id.aroma_radio_btn1:
+                        pkt_type = 0x12;
+                        break;
+                    case R.id.aroma_radio_btn2:
+                        pkt_type = 0x13;
+                        break;
+                    case R.id.aroma_radio_btn3:
+                        pkt_type = 0x14;
+                        break;
+                    default:
+                        //Toast.makeText(getApplicationContext(), "radio btn select plz", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
         ImageView aroma_therapy_aroma_set_btn = (ImageView) findViewById(R.id.aroma_therapy_aroma_set_btn);
         aroma_therapy_aroma_set_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,10 +77,25 @@ public class AromaTherapyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "분사버튼 터치됨!", Toast.LENGTH_SHORT).show();
+
+                //아로마 설정값 발향기로 전송
                 int finchk = 254;
-                byte fin = (byte)finchk;
-                //byte [] color_set = {0x10, 0x11, 0x0e, 0x0a, 0x0e, 0x1e, 0x7e, 0x05, 0x02, 0x22, 0x67, 0x0a, fin};
-                byte [] aroma_set = {0x10, 0x12, 0x0c, 0x2d, 0x0d, 0x00, 0x54, 0x78, 0x07, 0x00, 0x00, 0x00, fin};
+                int p_type = pkt_type;
+                int s_hour = start_hour, s_min=start_minute, e_hour = end_hour, e_min = end_minute, w_sum = 0x2A, c_time = 0x00;
+                byte start_frame = (byte) 0x10; //프레임 시작
+                byte packet_type = (byte) p_type;  //어느 구간이 선택되었는지 확인해서 입력
+                byte start_hour = (byte) s_hour;
+                byte start_min = (byte) s_min;
+                byte end_hour = (byte) e_hour;
+                byte end_min = (byte) e_min;
+                byte week_sum = (byte) w_sum;
+                byte cycle_min = (byte) c_time;
+                byte aroma_type = (byte) 0x00;//aroma_type;  //향기종류 //현재 사용하지 않음 // 그냥 0으로 설정
+                byte aroma_remain = (byte) 0xF0; // 잔여량
+                byte spray_now = (byte) 0x01;  //분사 버튼 클릭 여부(0->클릭안됨, 1->클릭됨)
+                byte padding = (byte) 0x00;  //단순 패딩임..
+                byte fin_frame = (byte) finchk; // 프레임 종료
+                byte [] aroma_set = {start_frame, packet_type, start_hour, start_min, end_hour, end_min, week_sum, cycle_min, aroma_type, aroma_remain, spray_now, padding, fin_frame};
                 try {
                     ((MainActivity) MainActivity.mContext).mOutputStream.write(aroma_set);
                 }catch(Exception  e){
@@ -70,6 +115,38 @@ public class AromaTherapyActivity extends AppCompatActivity {
             }
         });
 
+        //하단 바 클릭 이벤트 처리
+        LinearLayout link_color_therapy = (LinearLayout)findViewById(R.id.link_color_therapy);
+        link_color_therapy.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ColorTherapyActivity.class);
+                startActivity(intent);
+            }
+        });
+        LinearLayout link_aroma_therapy = (LinearLayout)findViewById(R.id.link_aroma_therapy);
+        link_aroma_therapy.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), AromaTherapyActivity.class);
+//                startActivity(intent);
+            }
+        });
+        LinearLayout link_dictionary = (LinearLayout)findViewById(R.id.link_dictionary);
+        link_dictionary.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), TherapyDictionaryActivity.class);
+                startActivity(intent);
+            }
+        });
+        LinearLayout link_settings = (LinearLayout)findViewById(R.id.link_settings);
+        link_settings.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "준비중입니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)

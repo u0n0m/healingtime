@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -294,9 +295,22 @@ public class TherapyDictionaryActivity extends AppCompatActivity {
             }
         });
 
+        //메인화면에서 검색 버튼 눌러서 들어온 경우에 검색  기능 활성화
+        Intent intent = getIntent();
+        Boolean search_enable = intent.getBooleanExtra("search_enable",false);
+        if(search_enable){
+            main_btn.setVisibility(View.INVISIBLE);
+            search_btn.setVisibility(View.INVISIBLE);
+            editsearch.setVisibility(View.VISIBLE);
+            editsearch.requestFocus();
+            editsearch.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
+            editsearch.setTextColor(Color.BLACK);
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+        }
+
 
         // Locate the EditText in listview_main.xml
-
 
         // Capture Text in EditText
         editsearch.addTextChangedListener(new TextWatcher() {
@@ -348,6 +362,7 @@ public class TherapyDictionaryActivity extends AppCompatActivity {
             }
         });
 
+
         LinearLayout therapy_dictionary_color = (LinearLayout)findViewById(R.id.therapy_dictionary_color1);
         therapy_dictionary_color.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -356,5 +371,39 @@ public class TherapyDictionaryActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //하단 바 클릭 이벤트 처리
+        LinearLayout link_color_therapy = (LinearLayout)findViewById(R.id.link_color_therapy);
+        link_color_therapy.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ColorTherapyActivity.class);
+                startActivity(intent);
+            }
+        });
+        LinearLayout link_aroma_therapy = (LinearLayout)findViewById(R.id.link_aroma_therapy);
+        link_aroma_therapy.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AromaTherapyActivity.class);
+                startActivity(intent);
+            }
+        });
+        LinearLayout link_dictionary = (LinearLayout)findViewById(R.id.link_dictionary);
+        link_dictionary.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), TherapyDictionaryActivity.class);
+//                startActivity(intent);
+            }
+        });
+        LinearLayout link_settings = (LinearLayout)findViewById(R.id.link_settings);
+        link_settings.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "준비중입니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 }
